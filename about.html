@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>كيف يعمل نايس شات؟ - دليل شامل</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bahij+TheSansArabic:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #600e6e;
+        --secondary-color: #082611;
+        --accent-color: #114922;
+        --white: #ffffff;
+        --light-bg: #f8f9fa;
+        --dark-text: #2c3e50;
+        --gradient-main: linear-gradient(135deg, #600e6e, #114922);
+        --gradient-secondary: linear-gradient(135deg, #082611, #600e6e);
+        --success-color: #28a745;
+        --info-color: #17a2b8;
+      }
+
+      body {
+        font-family: "Bahij TheSansArabic", "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--dark-text);
+        overflow-x: hidden;
+      }
+
+      /* ==================== HEADER ==================== */
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--dark-text);
+        font-weight: 500;
+        font-size: 1.1rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--gradient-main);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .back-home {
+        background: var(--gradient-main);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(96, 14, 110, 0.3);
+      }
+
+      .back-home:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+        color: white;
+      }
+
+      /* ==================== HERO SECTION ==================== */
+      .hero {
+        background: var(--gradient-main);
+        color: white;
+        padding: 8rem 0 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        animation: moveGrid 20s linear infinite;
+      }
+
+      @keyframes moveGrid {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(15px, 15px);
+        }
+      }
+
+      .hero-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      /* ==================== BREADCRUMB ==================== */
+      .breadcrumb {
+        background: var(--light-bg);
+        padding: 1rem 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .breadcrumb-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .breadcrumb-list {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+      }
+
+      .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .breadcrumb-link {
+        text-decoration: none;
+        color: var(--dark-text);
+        transition: color 0.3s ease;
+      }
+
+      .breadcrumb-link:hover {
+        color: var(--primary-color);
+      }
+
+      .breadcrumb-separator {
+        color: #999;
+      }
+
+      .breadcrumb-current {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      /* ==================== MAIN CONTENT ==================== */
+      .main-content {
+        padding: 4rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        margin-bottom: 6rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* ==================== STEPS SECTION ==================== */
+      .steps-timeline {
+        position: relative;
+        padding: 2rem 0;
+      }
+
+      .steps-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        width: 4px;
+        height: 100%;
+        background: var(--gradient-main);
+        transform: translateX(50%);
+      }
+
+      .step-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4rem;
+        position: relative;
+      }
+
+      .step-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .step-content {
+        width: 45%;
+        padding: 2rem;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .step-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgba(96, 14, 110, 0.15);
+      }
+
+      .step-number {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-main);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+        z-index: 2;
+      }
+
+      .step-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-main);
+        color: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .step-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+      }
+
+      .step-description {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .step-details {
+        list-style: none;
+        padding: 0;
+      }
+
+      .step-details li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.5rem 0;
+        color: #555;
+      }
+
+      .step-details i {
+        color: var(--success-color);
+        width: 20px;
+      }
+
+      .step-image {
+        width: 100%;
+        border-radius: 15px;
+        margin-top: 1rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ==================== FEATURES COMPARISON ==================== */
+      .comparison-section {
+        background: var(--light-bg);
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .comparison-table {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+
+      .comparison-header {
+        background: var(--gradient-main);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .comparison-header h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .comparison-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+      }
+
+      .comparison-column {
+        padding: 2rem;
+        text-align: center;
+        border-left: 1px solid #eee;
+      }
+
+      .comparison-column:first-child {
+        border-left: none;
+      }
+
+      .comparison-column h4 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .comparison-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+      }
+
+      .comparison-item:hover {
+        background: var(--light-bg);
+      }
+
+      .comparison-item.positive {
+        color: var(--success-color);
+      }
+
+      .comparison-item.negative {
+        color: #dc3545;
+      }
+
+      .comparison-item.neutral {
+        color: #6c757d;
+      }
+
+      /* ==================== INTERACTIVE DEMO ==================== */
+      .demo-section {
+        background: var(--light-bg);
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .demo-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .demo-content h3 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--dark-text);
+        margin-bottom: 1.5rem;
+      }
+
+      .demo-content p {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .demo-features {
+        list-style: none;
+        padding: 0;
+      }
+
+      .demo-features li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+      }
+
+      .demo-features i {
+        color: var(--success-color);
+        font-size: 1.2rem;
+        width: 20px;
+      }
+
+      .demo-phone {
+        background: white;
+        border-radius: 30px;
+        padding: 2rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        position: relative;
+      }
+
+      .demo-screen {
+        background: #1a1a1a;
+        border-radius: 20px;
+        padding: 1.5rem;
+        color: white;
+        font-family: "Courier New", monospace;
+        min-height: 400px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .demo-messages {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .message {
+        max-width: 80%;
+        padding: 1rem 1.5rem;
+        border-radius: 20px;
+        animation: messageSlide 0.5s ease-out;
+      }
+
+      .message.user {
+        background: var(--primary-color);
+        align-self: flex-start;
+        border-bottom-right-radius: 5px;
+      }
+
+      .message.bot {
+        background: #333;
+        align-self: flex-end;
+        border-bottom-left-radius: 5px;
+      }
+
+      @keyframes messageSlide {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .typing-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        background: #333;
+        border-radius: 20px;
+        border-bottom-left-radius: 5px;
+        max-width: 80px;
+        align-self: flex-end;
+      }
+
+      .typing-dot {
+        width: 8px;
+        height: 8px;
+        background: #999;
+        border-radius: 50%;
+        animation: typingAnimation 1.4s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typingAnimation {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ==================== CTA SECTION ==================== */
+      .cta-section {
+        background: var(--gradient-main);
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1.2rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--primary-color);
+        box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      /* ==================== RESPONSIVE ==================== */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .steps-timeline::before {
+          right: 2rem;
+          transform: none;
+        }
+
+        .step-item {
+          flex-direction: column !important;
+          align-items: flex-start;
+          margin-right: 3rem;
+        }
+
+        .step-content {
+          width: 100%;
+          margin-top: 2rem;
+        }
+
+        .step-number {
+          right: -3rem;
+          transform: translate(0, -50%);
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .comparison-body {
+          grid-template-columns: 1fr;
+        }
+
+        .comparison-column {
+          border-left: none;
+          border-top: 1px solid #eee;
+        }
+
+        .comparison-column:first-child {
+          border-top: none;
+        }
+
+        .demo-container {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      /* ==================== FIXED CONTACT BUTTONS ==================== */
+      .fixed-contact {
+        position: fixed;
+        left: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+      }
+
+      .phone-btn {
+        background: var(--gradient-main);
+      }
+
+      .contact-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="image/logo-header.png" alt="نايس شات" />
+        </a>
+
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">الرئيسية</a>
+          <a href="about.html" class="nav-link active">كيف يعمل؟</a>
+          <a href="features.html" class="nav-link">المميزات</a>
+          <a href="benefits.html" class="nav-link">الفوائد</a>
+          <a href="pricing.html" class="nav-link">الأسعار</a>
+          <a href="contact.html" class="nav-link">اتصل بنا</a>
+        </nav>
+
+        <a href="index.html" class="back-home">
+          <i class="fas fa-home"></i>
+          العودة للرئيسية
+        </a>
+      </div>
+    </header>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+      <a
+        href="https://wa.me/966590086017"
+        class="contact-btn whatsapp-btn"
+        target="_blank"
+        title="واتساب"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="tel:+966590086017" class="contact-btn phone-btn" title="اتصال">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>كيف يعمل نايس شات؟</h1>
+        <p>
+          اكتشف كيف يمكن لنايس شات أن يحول تجربة التواصل مع عملائك من محادثات
+          تقليدية مملة إلى تفاعلات ذكية وممتعة تزيد من رضا العملاء ومبيعاتك
+        </p>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <div class="breadcrumb-container">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item">
+            <a href="index.html" class="breadcrumb-link">الرئيسية</a>
+          </li>
+          <li class="breadcrumb-item">
+            <span class="breadcrumb-separator">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+          </li>
+          <li class="breadcrumb-item">
+            <span class="breadcrumb-current">كيف يعمل؟</span>
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Steps Section -->
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">رحلتك مع نايس شات في 4 خطوات بسيطة</h2>
+            <p class="section-subtitle">من التسجيل إلى زيادة المبيعات</p>
+            <p class="section-description">
+              نحن نجعل عملية البدء مع نايس شات سهلة وسريعة، مع دعم كامل من
+              فريقنا في كل خطوة
+            </p>
+          </div>
+
+          <div class="steps-timeline">
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+                <h3 class="step-title">التسجيل والإعداد الأولي</h3>
+                <p class="step-description">
+                  ابدأ رحلتك مع نايس شات بإنشاء حساب مجاني والحصول على فترة
+                  تجريبية كاملة لمدة 14 يوماً
+                </p>
+                <ul class="step-details">
+                  <li>
+                    <i class="fas fa-check"></i> إنشاء حساب في أقل من دقيقتين
+                  </li>
+                  <li><i class="fas fa-check"></i> تفعيل فوري بدون انتظار</li>
+                  <li><i class="fas fa-check"></i> وصول كامل لجميع المميزات</li>
+                  <li>
+                    <i class="fas fa-check"></i> دعم فني مجاني على مدار الساعة
+                  </li>
+                </ul>
+                <img
+                  src="image/nicechat (1).jpeg"
+                  alt="لا تكرر نفس الجواب القديم"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">1</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-link"></i>
+                </div>
+                <h3 class="step-title">ربط قنوات التواصل</h3>
+                <p class="step-description">
+                  اربط جميع قنوات التواصل الخاصة بك في مكان واحد: واتساب،
+                  فيسبوك، إنستجرام، وموقعك الإلكتروني
+                </p>
+                <ul class="step-details">
+                  <li>
+                    <i class="fas fa-check"></i> ربط واتساب بيزنس بنقرة واحدة
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> تكامل مع فيسبوك وإنستجرام
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> إضافة ويدجت للموقع الإلكتروني
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> مزامنة فورية لجميع المحادثات
+                  </li>
+                </ul>
+                <img
+                  src="image/nicechat (3).jpeg"
+                  alt="وين ما بغاه تلاقيه"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">2</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="step-title">تخصيص الذكاء الاصطناعي</h3>
+                <p class="step-description">
+                  قم بتدريب نايس شات ليتحدث بأسلوب علامتك التجارية ويفهم طبيعة
+                  عملك وخدماتك
+                </p>
+                <ul class="step-details">
+                  <li>
+                    <i class="fas fa-check"></i> تحديد شخصية البوت وأسلوب الرد
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> إضافة معلومات عن منتجاتك
+                    وخدماتك
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> تدريب النظام على الأسئلة
+                    الشائعة
+                  </li>
+                  <li><i class="fas fa-check"></i> ضبط مستوى التدخل البشري</li>
+                </ul>
+                <img
+                  src="image/nicechat (2).jpeg"
+                  alt="عملاءك مو أرقام.. عملاءك بشر!"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">3</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="step-title">الإطلاق وتحقيق النتائج</h3>
+                <p class="step-description">
+                  ابدأ في استقبال محادثات أكثر ذكاءً وشاهد كيف تتحسن تجربة
+                  عملائك ومعدلات التحويل
+                </p>
+                <ul class="step-details">
+                  <li><i class="fas fa-check"></i> تفعيل فوري لجميع القنوات</li>
+                  <li><i class="fas fa-check"></i> مراقبة الأداء والتحليلات</li>
+                  <li><i class="fas fa-check"></i> تحسين مستمر للنتائج</li>
+                  <li>
+                    <i class="fas fa-check"></i> دعم مستمر من فريق الخبراء
+                  </li>
+                </ul>
+                <img
+                  src="image/nicechat (7).jpeg"
+                  alt="نايس شات يخليك تحس انك تكلم صديقك"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">4</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Comparison -->
+        <section class="comparison-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">نايس شات مقابل البدائل التقليدية</h2>
+              <p class="section-description">
+                شاهد الفرق الواضح بين نايس شات والحلول التقليدية في السوق
+              </p>
+            </div>
+
+            <div class="comparison-table">
+              <div class="comparison-header">
+                <h3>مقارنة شاملة بين الحلول</h3>
+                <p>اكتشف لماذا نايس شات هو الخيار الأفضل لعملك</p>
+              </div>
+
+              <div class="comparison-body">
+                <div class="comparison-column">
+                  <h4>الشات بوت التقليدي</h4>
+                  <div class="comparison-item negative">
+                    <i class="fas fa-times"></i>
+                    <span>ردود جامدة ومحدودة</span>
+                  </div>
+                  <div class="comparison-item negative">
+                    <i class="fas fa-times"></i>
+                    <span>لا يفهم السياق</span>
+                  </div>
+                  <div class="comparison-item negative">
+                    <i class="fas fa-times"></i>
+                    <span>تجربة مستخدم مملة</span>
+                  </div>
+                  <div class="comparison-item negative">
+                    <i class="fas fa-times"></i>
+                    <span>صعوبة في الإعداد</span>
+                  </div>
+                  <div class="comparison-item negative">
+                    <i class="fas fa-times"></i>
+                    <span>لا يتعلم من المحادثات</span>
+                  </div>
+                </div>
+
+                <div class="comparison-column">
+                  <h4>نايس شات</h4>
+                  <div class="comparison-item positive">
+                    <i class="fas fa-check"></i>
+                    <span>محادثات طبيعية وذكية</span>
+                  </div>
+                  <div class="comparison-item positive">
+                    <i class="fas fa-check"></i>
+                    <span>فهم عميق للسياق</span>
+                  </div>
+                  <div class="comparison-item positive">
+                    <i class="fas fa-check"></i>
+                    <span>تجربة ممتعة وتفاعلية</span>
+                  </div>
+                  <div class="comparison-item positive">
+                    <i class="fas fa-check"></i>
+                    <span>إعداد سريع وسهل</span>
+                  </div>
+                  <div class="comparison-item positive">
+                    <i class="fas fa-check"></i>
+                    <span>تعلم مستمر وتطوير</span>
+                  </div>
+                </div>
+
+                <div class="comparison-column">
+                  <h4>الدعم البشري فقط</h4>
+                  <div class="comparison-item neutral">
+                    <i class="fas fa-clock"></i>
+                    <span>أوقات عمل محدودة</span>
+                  </div>
+                  <div class="comparison-item neutral">
+                    <i class="fas fa-money-bill"></i>
+                    <span>تكلفة عالية</span>
+                  </div>
+                  <div class="comparison-item neutral">
+                    <i class="fas fa-user-clock"></i>
+                    <span>أخطاء بشرية محتملة</span>
+                  </div>
+                  <div class="comparison-item neutral">
+                    <i class="fas fa-users"></i>
+                    <span>صعوبة في التوسع</span>
+                  </div>
+                  <div class="comparison-item neutral">
+                    <i class="fas fa-chart-line"></i>
+                    <span>قياس الأداء معقد</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="demo-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">شاهد نايس شات في العمل</h2>
+              <p class="section-description">
+                تجربة تفاعلية لترى كيف يتفاعل نايس شات مع العملاء بطريقة طبيعية
+                وذكية
+              </p>
+            </div>
+
+            <div class="demo-container">
+              <div class="demo-content">
+                <h3>التفاعل الذكي مع العملاء</h3>
+                <p>
+                  نايس شات يفهم احتياجات عملائك ويرد عليهم بطريقة شخصية وودية،
+                  مما يخلق تجربة استثنائية تزيد من رضا العملاء واحتمالية الشراء.
+                </p>
+
+                <ul class="demo-features">
+                  <li><i class="fas fa-brain"></i> فهم ذكي لسياق المحادثة</li>
+                  <li><i class="fas fa-heart"></i> ردود شخصية ومناسبة</li>
+                  <li>
+                    <i class="fas fa-clock"></i> استجابة فورية على مدار الساعة
+                  </li>
+                  <li>
+                    <i class="fas fa-language"></i> دعم اللغة العربية بالكامل
+                  </li>
+                  <li><i class="fas fa-chart-line"></i> تحليل مشاعر العملاء</li>
+                </ul>
+              </div>
+
+              <div class="demo-phone">
+                <div class="demo-screen" id="demoScreen">
+                  <div class="demo-messages" id="demoMessages">
+                    <div class="message user">
+                      مرحباً، أريد معلومات عن خدماتكم
+                    </div>
+                    <div class="message bot">
+                      أهلاً وسهلاً! يسعدني مساعدتك 😊<br />نحن نقدم حلول تقنية
+                      متطورة للشركات. ما نوع الخدمة التي تبحث عنها تحديداً؟
+                    </div>
+                    <div class="message user">أحتاج نظام إدارة عملاء</div>
+                    <div class="message bot">
+                      ممتاز! لدينا أنظمة CRM قوية ومرنة. هل يمكنني معرفة حجم
+                      شركتكم لأقترح عليك الحل الأنسب؟
+                    </div>
+                  </div>
+                  <div
+                    class="typing-indicator"
+                    id="typingIndicator"
+                    style="display: none"
+                  >
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Process -->
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">التقنية وراء نايس شات</h2>
+            <p class="section-subtitle">كيف يعمل الذكاء الاصطناعي لخدمتك</p>
+            <p class="section-description">
+              نستخدم أحدث تقنيات الذكاء الاصطناعي ومعالجة اللغات الطبيعية لضمان
+              تجربة محادثة متميزة
+            </p>
+          </div>
+
+          <div class="steps-timeline">
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="step-title">فهم الرسالة</h3>
+                <p class="step-description">
+                  نايس شات يحلل رسالة العميل باستخدام تقنيات متقدمة لفهم المعنى
+                  والسياق والمشاعر
+                </p>
+                <ul class="step-details">
+                  <li>
+                    <i class="fas fa-check"></i> تحليل اللغة الطبيعية (NLP)
+                  </li>
+                  <li><i class="fas fa-check"></i> فهم السياق والمعنى</li>
+                  <li><i class="fas fa-check"></i> تحليل المشاعر والنبرة</li>
+                  <li><i class="fas fa-check"></i> استخراج المعلومات المهمة</li>
+                </ul>
+              </div>
+              <div class="step-number">1</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <h3 class="step-title">البحث والتحليل</h3>
+                <p class="step-description">
+                  يبحث النظام في قاعدة المعرفة والمحادثات السابقة لإيجاد أفضل
+                  إجابة مناسبة
+                </p>
+                <ul class="step-details">
+                  <li><i class="fas fa-check"></i> البحث في قاعدة المعرفة</li>
+                  <li><i class="fas fa-check"></i> مراجعة المحادثات السابقة</li>
+                  <li><i class="fas fa-check"></i> اختيار الرد الأنسب</li>
+                  <li><i class="fas fa-check"></i> التحقق من دقة المعلومات</li>
+                </ul>
+                <img
+                  src="image/nicechat (4).jpeg"
+                  alt="ياخي تعبنا من البوتات!"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">2</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-magic"></i>
+                </div>
+                <h3 class="step-title">توليد الرد</h3>
+                <p class="step-description">
+                  يقوم النظام بصياغة رد طبيعي وشخصي يناسب أسلوب علامتك التجارية
+                  ويلبي احتياجات العميل
+                </p>
+                <ul class="step-details">
+                  <li><i class="fas fa-check"></i> صياغة رد شخصي ومناسب</li>
+                  <li>
+                    <i class="fas fa-check"></i> مراعاة أسلوب العلامة التجارية
+                  </li>
+                  <li><i class="fas fa-check"></i> إضافة اللمسة الإنسانية</li>
+                  <li><i class="fas fa-check"></i> التحقق من جودة الرد</li>
+                </ul>
+              </div>
+              <div class="step-number">3</div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-content">
+                <div class="step-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="step-title">التعلم والتحسن</h3>
+                <p class="step-description">
+                  بعد كل محادثة، يتعلم النظام ويحسن من أدائه ليقدم تجربة أفضل في
+                  المرات القادمة
+                </p>
+                <ul class="step-details">
+                  <li><i class="fas fa-check"></i> تحليل فعالية الرد</li>
+                  <li><i class="fas fa-check"></i> تحديث قاعدة المعرفة</li>
+                  <li><i class="fas fa-check"></i> تحسين خوارزميات الفهم</li>
+                  <li><i class="fas fa-check"></i> تطوير مستمر للأداء</li>
+                </ul>
+                <img
+                  src="image/nicechat (5).jpeg"
+                  alt="عميلك ينتظر.. وأنت بعدك تنتظر؟!"
+                  class="step-image"
+                />
+              </div>
+              <div class="step-number">4</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>جاهز لتجربة الفرق؟</h2>
+        <p>
+          ابدأ تجربتك المجانية اليوم وشاهد كيف يمكن لنايس شات أن يغير طريقة
+          تفاعلك مع عملائك
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary" onclick="openModal()">
+            <i class="fas fa-rocket"></i>
+            ابدأ تجربتك المجانية
+          </a>
+          <a href="tel:+966590086017" class="btn btn-secondary">
+            <i class="fas fa-phone"></i>
+            تحدث مع خبير
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Demo Animation
+      function startDemo() {
+        const messages = [
+          { type: "user", text: "هل يمكنني معرفة أسعاركم؟" },
+          {
+            type: "bot",
+            text: "بالطبع! أسعارنا تبدأ من 299 ريال شهرياً. هل تريد معرفة تفاصيل الباقات؟",
+          },
+          { type: "user", text: "نعم، وما الفرق بين الباقات؟" },
+          {
+            type: "bot",
+            text: "ممتاز! لدينا 3 باقات:<br>📦 الأساسية: 299 ريال - حتى 1000 محادثة<br>🚀 المتقدمة: 599 ريال - حتى 5000 محادثة<br>⭐ الاحترافية: 999 ريال - محادثات لا محدودة<br><br>أيهم يناسب احتياجاتك؟",
+          },
+        ];
+
+        let index = 0;
+        const messagesContainer = document.getElementById("demoMessages");
+        const typingIndicator = document.getElementById("typingIndicator");
+
+        function addMessage() {
+          if (index < messages.length) {
+            typingIndicator.style.display = "flex";
+
+            setTimeout(() => {
+              typingIndicator.style.display = "none";
+              const message = document.createElement("div");
+              message.className = `message ${messages[index].type}`;
+              message.innerHTML = messages[index].text;
+              messagesContainer.appendChild(message);
+
+              messagesContainer.scrollTop = messagesContainer.scrollHeight;
+              index++;
+
+              setTimeout(addMessage, 2000);
+            }, 1500);
+          } else {
+            setTimeout(() => {
+              messagesContainer.innerHTML = `
+                            <div class="message user">مرحباً، أريد معلومات عن خدماتكم</div>
+                            <div class="message bot">أهلاً وسهلاً! يسعدني مساعدتك 😊<br>نحن نقدم حلول تقنية متطورة للشركات. ما نوع الخدمة التي تبحث عنها تحديداً؟</div>
+                            <div class="message user">أحتاج نظام إدارة عملاء</div>
+                            <div class="message bot">ممتاز! لدينا أنظمة CRM قوية ومرنة. هل يمكنني معرفة حجم شركتكم لأقترح عليك الحل الأنسب؟</div>
+                        `;
+              index = 0;
+              setTimeout(addMessage, 3000);
+            }, 5000);
+          }
+        }
+
+        setTimeout(addMessage, 2000);
+      }
+
+      // Start demo when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        startDemo();
+      });
+
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Modal function (placeholder)
+      function openModal() {
+        alert("سيتم توجيهك إلى صفحة التسجيل المجاني!");
+      }
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 8px 32px rgba(0,0,0,0.15)";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        }
+      });
+
+      // Animate elements on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Apply animation to elements
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(
+          ".step-content, .comparison-column, .demo-content, .demo-phone"
+        );
+        animateElements.forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.6s ease-out";
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

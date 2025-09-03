@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأسعار - نايس شات | خطط مرنة تناسب جميع الأعمال</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bahij+TheSansArabic:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #600e6e;
+        --secondary-color: #082611;
+        --accent-color: #114922;
+        --white: #ffffff;
+        --light-bg: #f8f9fa;
+        --dark-text: #2c3e50;
+        --gradient-main: linear-gradient(135deg, #600e6e, #114922);
+        --gradient-secondary: linear-gradient(135deg, #082611, #600e6e);
+        --success-color: #28a745;
+        --warning-color: #ffc107;
+      }
+
+      body {
+        font-family: "Bahij TheSansArabic", "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--dark-text);
+        overflow-x: hidden;
+      }
+
+      /* ==================== HEADER ==================== */
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--dark-text);
+        font-weight: 500;
+        font-size: 1.1rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--gradient-main);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .cta-header {
+        background: var(--gradient-main);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(96, 14, 110, 0.3);
+      }
+
+      .cta-header:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+        color: white;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .mobile-menu-btn span {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      /* ==================== MAIN CONTENT ==================== */
+      .main-content {
+        padding-top: 100px;
+        min-height: 100vh;
+      }
+
+      /* ==================== HERO SECTION ==================== */
+      .page-hero {
+        background: var(--gradient-main);
+        color: white;
+        padding: 6rem 0 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .page-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ==================== PRICING TOGGLE ==================== */
+      .pricing-toggle {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .toggle-container {
+        background: white;
+        border-radius: 50px;
+        padding: 8px;
+        display: inline-flex;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .toggle-option {
+        padding: 12px 30px;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 1.1rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .toggle-option.active {
+        background: var(--gradient-main);
+        color: white;
+        box-shadow: 0 5px 15px rgba(96, 14, 110, 0.3);
+      }
+
+      .discount-badge {
+        position: absolute;
+        top: -10px;
+        right: -15px;
+        background: #ff4757;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 10px;
+        animation: pulse 2s infinite;
+      }
+
+      /* ==================== SECTION STYLES ==================== */
+      .section {
+        padding: 6rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+      }
+
+      .section-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        color: #666;
+      }
+
+      /* ==================== PRICING CARDS ==================== */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .pricing-card {
+        background: white;
+        border-radius: 30px;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        border: 2px solid transparent;
+        overflow: hidden;
+      }
+
+      .pricing-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--gradient-main);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 80px rgba(96, 14, 110, 0.15);
+        border-color: var(--primary-color);
+      }
+
+      .pricing-card:hover::before {
+        opacity: 1;
+      }
+
+      .pricing-card.popular {
+        transform: scale(1.05);
+        border-color: var(--primary-color);
+        box-shadow: 0 25px 70px rgba(96, 14, 110, 0.2);
+      }
+
+      .pricing-card.popular::before {
+        opacity: 1;
+        height: 10px;
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gradient-main);
+        color: white;
+        padding: 8px 25px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+      }
+
+      .plan-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-main);
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 10px 30px rgba(96, 14, 110, 0.3);
+      }
+
+      .plan-name {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .plan-description {
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+      }
+
+      .price-container {
+        margin-bottom: 2.5rem;
+      }
+
+      .price {
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: var(--primary-color);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .price-currency {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+      }
+
+      .price-period {
+        color: #666;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .old-price {
+        font-size: 1.5rem;
+        color: #999;
+        text-decoration: line-through;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .discount-text {
+        color: var(--success-color);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .features-list {
+        list-style: none;
+        text-align: right;
+        margin-bottom: 2.5rem;
+      }
+
+      .features-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .features-list li::before {
+        content: "✓";
+        background: var(--success-color);
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        font-weight: bold;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      .features-list li.not-included::before {
+        content: "✗";
+        background: #dc3545;
+      }
+
+      .pricing-btn {
+        width: 100%;
+        padding: 1.2rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary-color);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+
+      .pricing-btn.primary {
+        background: var(--gradient-main);
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+      }
+
+      .pricing-btn.secondary {
+        background: transparent;
+        color: var(--primary-color);
+      }
+
+      .pricing-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+      }
+
+      .pricing-btn.secondary:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      /* ==================== COMPARISON TABLE ==================== */
+      .comparison-section {
+        background: var(--light-bg);
+      }
+
+      .comparison-table {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-top: 3rem;
+      }
+
+      .table-header {
+        background: var(--gradient-main);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .table-header h3 {
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .table-content {
+        overflow-x: auto;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        gap: 0;
+        min-width: 700px;
+      }
+
+      .table-cell {
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        border-left: 1px solid #f0f0f0;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .table-cell:first-child {
+        text-align: right;
+        font-weight: 600;
+        background: #f8f9fa;
+        border-left: none;
+      }
+
+      .table-cell.header {
+        background: var(--light-bg);
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+      }
+
+      .check-icon {
+        color: var(--success-color);
+        font-size: 1.2rem;
+      }
+
+      .x-icon {
+        color: #dc3545;
+        font-size: 1.2rem;
+      }
+
+      /* ==================== FAQ PRICING ==================== */
+      .faq-pricing {
+        margin-top: 4rem;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: white;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        background: var(--light-bg);
+      }
+
+      .faq-question:hover {
+        background: #e8f5e8;
+        color: var(--primary-color);
+      }
+
+      .faq-answer {
+        padding: 0 2rem 2rem;
+        display: none;
+        line-height: 1.8;
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-question i {
+        transition: transform 0.3s ease;
+        color: var(--primary-color);
+      }
+
+      /* ==================== CTA SECTION ==================== */
+      .cta-section {
+        background: var(--gradient-main);
+        color: white;
+        text-align: center;
+        padding: 6rem 0;
+      }
+
+      .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-section p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1.2rem 3rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--primary-color);
+        box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      /* ==================== FIXED CONTACT BUTTONS ==================== */
+      .fixed-contact {
+        position: fixed;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.8rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+      }
+
+      .phone-btn {
+        background: var(--gradient-main);
+      }
+
+      .contact-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ==================== MODAL ==================== */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        overflow-y: auto;
+      }
+
+      .modal-content {
+        background: var(--gradient-main);
+        margin: 3% auto;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        animation: modalSlide 0.4s ease;
+      }
+
+      @keyframes modalSlide {
+        from {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-header {
+        padding: 2.5rem;
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .close:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(90deg);
+      }
+
+      .modal-body {
+        background: white;
+        padding: 3rem;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: var(--dark-text);
+        font-size: 1.1rem;
+      }
+
+      .required {
+        color: red;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(96, 14, 110, 0.1);
+      }
+
+      .submit-btn {
+        background: var(--gradient-main);
+        color: white;
+        padding: 1.2rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+      }
+
+      /* ==================== FOOTER ==================== */
+      .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: white;
+      }
+
+      .footer-logo {
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo img {
+        height: 60px;
+      }
+
+      .footer-description {
+        color: #ccc;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        background: var(--accent-color);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 1.1rem;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-contact {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        color: #ccc;
+        font-size: 1.1rem;
+      }
+
+      .footer-contact i {
+        color: var(--primary-color);
+        width: 20px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+        color: #ccc;
+      }
+
+      /* ==================== RESPONSIVE DESIGN ==================== */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
+
+        .page-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .pricing-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .pricing-card.popular {
+          transform: none;
+        }
+
+        .comparison-grid {
+          grid-template-columns: 1.5fr repeat(3, 1fr);
+          font-size: 0.9rem;
+        }
+
+        .table-cell {
+          padding: 1rem 0.5rem;
+        }
+
+        .fixed-contact {
+          right: 1rem;
+        }
+
+        .contact-btn {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .modal-content {
+          width: 95%;
+          margin: 5% auto;
+        }
+
+        .modal-body {
+          padding: 2rem;
+        }
+
+        .toggle-container {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          padding: 4rem 0 3rem;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .nav-container {
+          padding: 0 1rem;
+        }
+
+        .pricing-card {
+          border-radius: 20px;
+          padding: 2rem 1rem;
+        }
+
+        .price {
+          font-size: 2.5rem;
+        }
+
+        .comparison-table {
+          margin: 2rem 0;
+        }
+      }
+
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .animate-on-scroll.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="image/logo-header.png" alt="نايس شات" />
+        </a>
+
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">الرئيسية</a>
+          <a href="about.html" class="nav-link">كيف يعمل؟</a>
+          <a href="features.html" class="nav-link">المميزات</a>
+          <a href="benefits.html" class="nav-link">الفوائد</a>
+          <a href="pricing.html" class="nav-link active">الأسعار</a>
+          <a href="contact.html" class="nav-link">اتصل بنا</a>
+        </nav>
+
+        <a href="#" class="cta-header" onclick="openModal('free')">
+          <i class="fas fa-rocket"></i>
+          جرب مجاناً الآن
+        </a>
+
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+      <a
+        href="https://wa.me/966590086017"
+        class="contact-btn whatsapp-btn"
+        target="_blank"
+        title="واتساب"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="tel:+966590086017" class="contact-btn phone-btn" title="اتصال">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="hero-content">
+          <h1>خطط أسعار مرنة تناسب جميع الأعمال</h1>
+          <p class="hero-subtitle">
+            اختر الخطة المناسبة لحجم شركتك واحتياجاتك، مع إمكانية الترقية أو
+            التخفيض في أي وقت
+          </p>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="section">
+        <div class="container">
+          <!-- Pricing Toggle -->
+          <div class="pricing-toggle">
+            <div class="toggle-container">
+              <div
+                class="toggle-option active"
+                onclick="togglePricing('monthly')"
+              >
+                شهري
+              </div>
+              <div class="toggle-option" onclick="togglePricing('yearly')">
+                سنوي
+                <span class="discount-badge">وفر 25%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <h2 class="section-title">خطط تناسب كل احتياجاتك</h2>
+            <p class="section-description">
+              من الشركات الناشئة إلى المؤسسات الكبيرة، لدينا الحل المناسب لك مع
+              ضمان أفضل قيمة مقابل المال
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <div class="pricing-card animate-on-scroll">
+              <div class="plan-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <h3 class="plan-name">الباقة التجريبية</h3>
+              <p class="plan-description">
+                مثالية للشركات الصغيرة والمتاجر الناشئة التي تريد تجربة قوة نايس
+                شات
+              </p>
+              <div class="price-container">
+                <div class="price monthly-price">مجاناً</div>
+                <div class="price yearly-price" style="display: none">
+                  مجاناً
+                </div>
+                <div class="price-period">لمدة 14 يوم</div>
+              </div>
+              <ul class="features-list">
+                <li>حتى 100 محادثة شهرياً</li>
+                <li>ربط منصة واحدة (واتساب أو فيسبوك)</li>
+                <li>ردود آلية ذكية</li>
+                <li>تحليلات أساسية</li>
+                <li>دعم فني عبر البريد الإلكتروني</li>
+                <li class="not-included">تخصيص متقدم</li>
+                <li class="not-included">تكامل CRM</li>
+              </ul>
+              <button
+                class="pricing-btn primary"
+                onclick="openModal('starter')"
+              >
+                <i class="fas fa-rocket"></i>
+                ابدأ مجاناً الآن
+              </button>
+            </div>
+
+            <!-- Professional Plan -->
+            <div class="pricing-card popular animate-on-scroll">
+              <div class="popular-badge">الأكثر شعبية</div>
+              <div class="plan-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3 class="plan-name">الباقة الاحترافية</h3>
+              <p class="plan-description">
+                الخيار الأمثل للشركات المتوسطة التي تريد استثمار جدي في خدمة
+                العملاء
+              </p>
+              <div class="price-container">
+                <div class="price monthly-price">
+                  <span class="old-price">1,500 ر.س</span>
+                  999<span class="price-currency">ر.س</span>
+                </div>
+                <div class="price yearly-price" style="display: none">
+                  <span class="old-price">18,000 ر.س</span>
+                  8,999<span class="price-currency">ر.س</span>
+                </div>
+                <div class="price-period monthly-period">شهرياً</div>
+                <div class="price-period yearly-period" style="display: none">
+                  سنوياً
+                </div>
+                <div class="discount-text monthly-discount">
+                  وفر 500 ر.س شهرياً!
+                </div>
+                <div
+                  class="discount-text yearly-discount"
+                  style="display: none"
+                >
+                  وفر 9,001 ر.س سنوياً!
+                </div>
+              </div>
+              <ul class="features-list">
+                <li>حتى 2,000 محادثة شهرياً</li>
+                <li>ربط جميع المنصات (واتساب، فيسبوك، إنستجرام)</li>
+                <li>ذكاء اصطناعي متقدم</li>
+                <li>تحليلات وتقارير مفصلة</li>
+                <li>تخصيص كامل للردود</li>
+                <li>تكامل مع أنظمة CRM</li>
+                <li>دعم فني مباشر</li>
+                <li>تدريب مجاني للفريق</li>
+              </ul>
+              <button
+                class="pricing-btn primary"
+                onclick="openModal('professional')"
+              >
+                <i class="fas fa-crown"></i>
+                اختر الباقة الاحترافية
+              </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card animate-on-scroll">
+              <div class="plan-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3 class="plan-name">باقة المؤسسات</h3>
+              <p class="plan-description">
+                حلول مخصصة للمؤسسات الكبيرة مع احتياجات معقدة ومتطلبات خاصة
+              </p>
+              <div class="price-container">
+                <div class="price monthly-price">
+                  <span class="old-price">5,000 ر.س</span>
+                  2,999<span class="price-currency">ر.س</span>
+                </div>
+                <div class="price yearly-price" style="display: none">
+                  <span class="old-price">60,000 ر.س</span>
+                  26,999<span class="price-currency">ر.س</span>
+                </div>
+                <div class="price-period monthly-period">شهرياً</div>
+                <div class="price-period yearly-period" style="display: none">
+                  سنوياً
+                </div>
+                <div class="discount-text monthly-discount">
+                  وفر 2,001 ر.س شهرياً!
+                </div>
+                <div
+                  class="discount-text yearly-discount"
+                  style="display: none"
+                >
+                  وفر 33,001 ر.س سنوياً!
+                </div>
+              </div>
+              <ul class="features-list">
+                <li>محادثات غير محدودة</li>
+                <li>ربط منصات غير محدودة</li>
+                <li>ذكاء اصطناعي مخصص</li>
+                <li>تحليلات متقدمة ولوحات قيادة</li>
+                <li>تخصيص كامل ومرن</li>
+                <li>تكامل متقدم مع جميع الأنظمة</li>
+                <li>مدير حساب مخصص</li>
+                <li>دعم أولوية 24/7</li>
+                <li>تدريب متقدم وورش عمل</li>
+                <li>SLA مضمون 99.9%</li>
+              </ul>
+              <button
+                class="pricing-btn secondary"
+                onclick="openModal('enterprise')"
+              >
+                <i class="fas fa-handshake"></i>
+                تواصل للحصول على عرض مخصص
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="section comparison-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">مقارنة مفصلة بين الباقات</h2>
+            <p class="section-description">
+              اطلع على جميع التفاصيل لتختار الباقة المناسبة لاحتياجاتك
+            </p>
+          </div>
+
+          <div class="comparison-table animate-on-scroll">
+            <div class="table-header">
+              <h3>مقارنة شاملة بين جميع الباقات</h3>
+            </div>
+            <div class="table-content">
+              <div class="comparison-grid">
+                <div class="table-cell header">الميزة</div>
+                <div class="table-cell header">التجريبية</div>
+                <div class="table-cell header">الاحترافية</div>
+                <div class="table-cell header">المؤسسات</div>
+
+                <div class="table-cell">عدد المحادثات الشهرية</div>
+                <div class="table-cell">100</div>
+                <div class="table-cell">2,000</div>
+                <div class="table-cell">غير محدود</div>
+
+                <div class="table-cell">عدد المنصات المربوطة</div>
+                <div class="table-cell">1</div>
+                <div class="table-cell">جميع المنصات</div>
+                <div class="table-cell">غير محدود</div>
+
+                <div class="table-cell">الذكاء الاصطناعي المتقدم</div>
+                <div class="table-cell">
+                  <i class="fas fa-times x-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-check check-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-check check-icon"></i>
+                </div>
+
+                <div class="table-cell">تخصيص الردود</div>
+                <div class="table-cell">أساسي</div>
+                <div class="table-cell">متقدم</div>
+                <div class="table-cell">كامل</div>
+
+                <div class="table-cell">تكامل CRM</div>
+                <div class="table-cell">
+                  <i class="fas fa-times x-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-check check-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-check check-icon"></i>
+                </div>
+
+                <div class="table-cell">التحليلات والتقارير</div>
+                <div class="table-cell">أساسية</div>
+                <div class="table-cell">مفصلة</div>
+                <div class="table-cell">متقدمة جداً</div>
+
+                <div class="table-cell">الدعم الفني</div>
+                <div class="table-cell">بريد إلكتروني</div>
+                <div class="table-cell">مباشر</div>
+                <div class="table-cell">أولوية 24/7</div>
+
+                <div class="table-cell">مدير حساب مخصص</div>
+                <div class="table-cell">
+                  <i class="fas fa-times x-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-times x-icon"></i>
+                </div>
+                <div class="table-cell">
+                  <i class="fas fa-check check-icon"></i>
+                </div>
+
+                <div class="table-cell">ضمان الجودة SLA</div>
+                <div class="table-cell">-</div>
+                <div class="table-cell">95%</div>
+                <div class="table-cell">99.9%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">أسئلة شائعة حول الأسعار</h2>
+            <p class="section-description">
+              إجابات واضحة على أهم الأسئلة المتعلقة بالتسعير والباقات
+            </p>
+          </div>
+
+          <div class="faq-pricing">
+            <div class="faq-container">
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل يمكنني تغيير الباقة لاحقاً؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نعم بالطبع! يمكنك الترقية أو التخفيض في أي وقت. عند الترقية،
+                  ستحصل على الميزات الجديدة فوراً، وعند التخفيض، ستستمر الميزات
+                  الحالية حتى نهاية دورة الفوترة.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>ما الذي يحدث إذا تجاوزت حد المحادثات؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  سنرسل لك تنبيهاً عندما تقترب من الحد المسموح. يمكنك الترقية
+                  للباقة الأعلى أو شراء محادثات إضافية بسعر 0.50 ر.س للمحادثة
+                  الواحدة.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل هناك رسوم إضافية غير معلنة؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  لا، نحن نؤمن بالشفافية التامة. جميع الأسعار المعروضة نهائية
+                  وتشمل جميع الميزات المذكورة بدون أي رسوم إضافية مخفية.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل يمكنني إلغاء الاشتراك في أي وقت؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نعم، يمكنك إلغاء الاشتراك في أي وقت بدون أي رسوم إلغاء. ستستمر
+                  الخدمة حتى نهاية دورة الفوترة الحالية وسنساعدك في تصدير
+                  بياناتك.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل تقدمون خصومات للمؤسسات التعليمية؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نعم، نقدم خصومات خاصة بنسبة 30% للجامعات والمدارس والمؤسسات
+                  التعليمية غير الربحية. تواصل معنا للحصول على كود الخصم.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>ما هي طرق الدفع المتاحة؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نقبل جميع طرق الدفع: فيزا، ماستركارد، مدى، STC Pay، والتحويل
+                  البنكي. كما نقبل الفواتير للشركات مع ائتمان 30 يوم.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2>ابدأ رحلتك مع نايس شات اليوم!</h2>
+          <p>جرب مجاناً لمدة 14 يوم بدون التزامات مالية واكتشف الفرق بنفسك</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn btn-primary" onclick="openModal('free')">
+              <i class="fas fa-rocket"></i>
+              ابدأ تجربتك المجانية الآن
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="openModal('demo')">
+              <i class="fas fa-calendar"></i>
+              احجز عرض تجريبي مباشر
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 style="margin-bottom: 0.5rem" id="modalTitle">
+            <i class="fas fa-rocket" style="margin-left: 0.5rem"></i>
+            ابدأ تجربتك المجانية الآن
+          </h2>
+          <p style="opacity: 0.9; font-size: 1.1rem" id="modalSubtitle">
+            انضم إلى آلاف الشركات التي تثق بنايس شات
+          </p>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="companyName"
+                >اسم الشركة <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                required
+                placeholder="أدخل اسم شركتك"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone"
+                >رقم الهاتف <span class="required">*</span></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="05XXXXXXXX"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email"
+                >البريد الإلكتروني <span class="required">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="personName"
+                >اسم الشخص <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="personName"
+                name="personName"
+                required
+                placeholder="اسمك الكامل"
+              />
+            </div>
+            <div class="form-group">
+              <label for="position"
+                >الوظيفة <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="position"
+                name="position"
+                required
+                placeholder="مدير، مالك، موظف تسويق..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="selectedPlan"
+                >الباقة المختارة <span class="required">*</span></label
+              >
+              <select id="selectedPlan" name="selectedPlan" required>
+                <option value="">اختر الباقة المناسبة</option>
+                <option value="starter">الباقة التجريبية - مجاناً</option>
+                <option value="professional">
+                  الباقة الاحترافية - 999 ر.س شهرياً
+                </option>
+                <option value="enterprise">باقة المؤسسات - عرض مخصص</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane" style="margin-left: 0.5rem"></i>
+              إرسال الطلب والحصول على الباقة
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="image/logo-footer.png" alt="نايس شات" />
+            </div>
+            <p class="footer-description">
+              منصة محادثة ذكية تجعل تفاعلك مع العملاء أكثر فعالية وإنسانية. نحن
+              نؤمن بقوة التواصل الحقيقي في بناء الأعمال الناجحة.
+            </p>
+            <div class="social-links">
+              <a href="#" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" title="لينكد إن"><i class="fab fa-linkedin"></i></a>
+              <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="إنستجرام"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">كيف يعمل؟</a></li>
+              <li><a href="features.html">المميزات</a></li>
+              <li><a href="benefits.html">الفوائد</a></li>
+              <li><a href="pricing.html">الأسعار</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <div class="footer-contact">
+              <i class="fas fa-phone"></i>
+              <span>0590086017</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fab fa-whatsapp"></i>
+              <span>واتساب: 0590086017</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>المملكة العربية السعودية</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-clock"></i>
+              <span>السبت - الخميس: 9 ص - 9 م</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Nice Chat. جميع الحقوق محفوظة | تم التطوير بواسطة NOVAY
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Pricing Toggle Functionality
+      let currentPricing = "monthly";
+
+      function togglePricing(type) {
+        currentPricing = type;
+
+        // Update toggle buttons
+        document.querySelectorAll(".toggle-option").forEach((option) => {
+          option.classList.remove("active");
+        });
+        event.target.classList.add("active");
+
+        // Update prices
+        const monthlyElements = document.querySelectorAll(
+          ".monthly-price, .monthly-period, .monthly-discount"
+        );
+        const yearlyElements = document.querySelectorAll(
+          ".yearly-price, .yearly-period, .yearly-discount"
+        );
+
+        if (type === "monthly") {
+          monthlyElements.forEach((el) => (el.style.display = "block"));
+          yearlyElements.forEach((el) => (el.style.display = "none"));
+        } else {
+          monthlyElements.forEach((el) => (el.style.display = "none"));
+          yearlyElements.forEach((el) => (el.style.display = "block"));
+        }
+      }
+
+      // Modal Functions
+      function openModal(planType = "free") {
+        document.getElementById("contactModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+
+        // Update modal content based on plan type
+        const modalTitle = document.getElementById("modalTitle");
+        const modalSubtitle = document.getElementById("modalSubtitle");
+        const selectedPlan = document.getElementById("selectedPlan");
+
+        switch (planType) {
+          case "starter":
+            modalTitle.innerHTML =
+              '<i class="fas fa-seedling" style="margin-left: 0.5rem;"></i>ابدأ تجربتك المجانية';
+            modalSubtitle.textContent = "اكتشف قوة نايس شات مجاناً لمدة 14 يوم";
+            selectedPlan.value = "starter";
+            break;
+          case "professional":
+            modalTitle.innerHTML =
+              '<i class="fas fa-star" style="margin-left: 0.5rem;"></i>الباقة الاحترافية';
+            modalSubtitle.textContent = "الخيار الأمثل للشركات المتوسطة";
+            selectedPlan.value = "professional";
+            break;
+          case "enterprise":
+            modalTitle.innerHTML =
+              '<i class="fas fa-building" style="margin-left: 0.5rem;"></i>باقة المؤسسات';
+            modalSubtitle.textContent = "حلول مخصصة للمؤسسات الكبيرة";
+            selectedPlan.value = "enterprise";
+            break;
+          default:
+            modalTitle.innerHTML =
+              '<i class="fas fa-rocket" style="margin-left: 0.5rem;"></i>ابدأ تجربتك المجانية الآن';
+            modalSubtitle.textContent =
+              "انضم إلى آلاف الشركات التي تثق بنايس شات";
+        }
+      }
+
+      function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal on outside click
+      window.onclick = function (event) {
+        const modal = document.getElementById("contactModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+
+      // FAQ Toggle
+      function toggleFaq(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all FAQ items
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          faqItem.classList.add("active");
+        }
+      }
+
+      // Form Submission
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        // Get form data
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+
+        // Show loading state
+        const submitBtn = event.target.querySelector(".submit-btn");
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin" style="margin-left: 0.5rem;"></i> جاري الإرسال...';
+        submitBtn.disabled = true;
+
+        // Simulate form submission
+        setTimeout(() => {
+          // Reset form and close modal
+          event.target.reset();
+          closeModal();
+
+          // Show success message
+          showSuccessMessage(data.selectedPlan);
+
+          // Reset button
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      }
+
+      // Success Message with Plan Info
+      function showSuccessMessage(planType) {
+        let planName = "";
+        switch (planType) {
+          case "starter":
+            planName = "التجريبية المجانية";
+            break;
+          case "professional":
+            planName = "الاحترافية";
+            break;
+          case "enterprise":
+            planName = "المؤسسات";
+            break;
+          default:
+            planName = "المختارة";
+        }
+
+        const successDiv = document.createElement("div");
+        successDiv.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(135deg, #600E6E, #114922);
+                    color: white;
+                    padding: 2.5rem 3rem;
+                    border-radius: 25px;
+                    box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+                    text-align: center;
+                    z-index: 3000;
+                    animation: successPop 0.5s ease;
+                    max-width: 500px;
+                ">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: #4CAF50; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">تم إرسال طلبك بنجاح!</h3>
+                    <p style="margin-bottom: 1rem;">باقة ${planName} في انتظارك</p>
+                    <p style="margin-bottom: 1.5rem;">سنتواصل معك خلال ساعة واحدة لإعداد حسابك وبدء رحلتك مع نايس شات</p>
+                    <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 15px; margin-top: 1rem;">
+                        <p style="font-size: 0.9rem; opacity: 0.9;">🚀 مرحباً بك في عائلة نايس شات!</p>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(successDiv);
+
+        setTimeout(() => {
+          successDiv.remove();
+        }, 5000);
+      }
+
+      // Header Scroll Effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 8px 32px rgba(0,0,0,0.15)";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        }
+      });
+
+      // Animate on Scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      // Apply animation to elements
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate-on-scroll");
+        animateElements.forEach((el) => {
+          observer.observe(el);
+        });
+      });
+
+      // Mobile Menu Toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          const navMenu = document.querySelector(".nav-menu");
+          const isOpen = navMenu.style.display === "flex";
+
+          if (isOpen) {
+            navMenu.style.display = "none";
+          } else {
+            navMenu.style.display = "flex";
+            navMenu.style.position = "absolute";
+            navMenu.style.top = "100%";
+            navMenu.style.left = "0";
+            navMenu.style.right = "0";
+            navMenu.style.background = "white";
+            navMenu.style.flexDirection = "column";
+            navMenu.style.padding = "2rem";
+            navMenu.style.boxShadow = "0 8px 32px rgba(0,0,0,0.15)";
+            navMenu.style.borderRadius = "0 0 15px 15px";
+          }
+        });
+
+      // Enhanced Button Hover Effects
+      document.querySelectorAll(".btn, .pricing-btn").forEach((btn) => {
+        btn.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-3px) scale(1.02)";
+        });
+
+        btn.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Add keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      // Add loading animation to contact buttons
+      document.querySelectorAll(".contact-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.style.animation = "pulse 0.6s ease";
+          setTimeout(() => {
+            this.style.animation = "";
+          }, 600);
+        });
+      });
+
+      // Pricing Card Hover Effects
+      document.querySelectorAll(".pricing-card").forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          if (!this.classList.contains("popular")) {
+            this.style.transform = "translateY(-15px) scale(1.02)";
+          }
+        });
+
+        card.addEventListener("mouseleave", function () {
+          if (!this.classList.contains("popular")) {
+            this.style.transform = "translateY(0) scale(1)";
+          }
+        });
+      });
+
+      // Add CSS animation for success message
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes successPop {
+          0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+          100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Initialize pricing toggle on load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set monthly as default
+        togglePricing("monthly");
+      });
+    </script>
+  </body>
+</html>

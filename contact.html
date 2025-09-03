@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اتصل بنا - نايس شات | نحن هنا لمساعدتك</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bahij+TheSansArabic:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #600e6e;
+        --secondary-color: #082611;
+        --accent-color: #114922;
+        --white: #ffffff;
+        --light-bg: #f8f9fa;
+        --dark-text: #2c3e50;
+        --gradient-main: linear-gradient(135deg, #600e6e, #114922);
+        --gradient-secondary: linear-gradient(135deg, #082611, #600e6e);
+        --success-color: #28a745;
+        --info-color: #17a2b8;
+      }
+
+      body {
+        font-family: "Bahij TheSansArabic", "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--dark-text);
+        overflow-x: hidden;
+      }
+
+      /* ==================== HEADER ==================== */
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--dark-text);
+        font-weight: 500;
+        font-size: 1.1rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--gradient-main);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .cta-header {
+        background: var(--gradient-main);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(96, 14, 110, 0.3);
+      }
+
+      .cta-header:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+        color: white;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .mobile-menu-btn span {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      /* ==================== MAIN CONTENT ==================== */
+      .main-content {
+        padding-top: 100px;
+        min-height: 100vh;
+      }
+
+      /* ==================== HERO SECTION ==================== */
+      .page-hero {
+        background: var(--gradient-main);
+        color: white;
+        padding: 6rem 0 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .page-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ==================== SECTION STYLES ==================== */
+      .section {
+        padding: 6rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+      }
+
+      .section-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        color: #666;
+      }
+
+      /* ==================== CONTACT METHODS ==================== */
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .contact-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--gradient-main);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 80px rgba(96, 14, 110, 0.15);
+        border-color: var(--primary-color);
+      }
+
+      .contact-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .contact-icon {
+        width: 90px;
+        height: 90px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-main);
+        z-index: -1;
+      }
+
+      .whatsapp-card .contact-icon::before {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+      }
+
+      .phone-card .contact-icon::before {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+      }
+
+      .email-card .contact-icon::before {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+      }
+
+      .contact-card h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .contact-card p {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+        font-size: 1.1rem;
+      }
+
+      .contact-info {
+        margin-bottom: 2rem;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        color: var(--dark-text);
+        font-weight: 600;
+      }
+
+      .contact-detail i {
+        margin-left: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .contact-btn {
+        background: var(--gradient-main);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+        color: white;
+      }
+
+      .whatsapp-card .contact-btn {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+      }
+
+      .phone-card .contact-btn {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+      }
+
+      .email-card .contact-btn {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+      }
+
+      /* ==================== CONTACT FORM ==================== */
+      .contact-form-section {
+        background: var(--light-bg);
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-form {
+        background: white;
+        padding: 3rem;
+        border-radius: 25px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: var(--dark-text);
+        font-size: 1.1rem;
+      }
+
+      .required {
+        color: #dc3545;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 15px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        background: #fafafa;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(96, 14, 110, 0.1);
+        background: white;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: var(--gradient-main);
+        color: white;
+        padding: 1.2rem 3rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(96, 14, 110, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 auto;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(96, 14, 110, 0.4);
+      }
+
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* ==================== BUSINESS HOURS ==================== */
+      .business-hours {
+        background: white;
+        padding: 3rem;
+        border-radius: 25px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .business-hours h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+      }
+
+      .hours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .hours-item {
+        padding: 1.5rem;
+        background: var(--light-bg);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .hours-item:hover {
+        background: #e8f5e8;
+        transform: translateY(-5px);
+      }
+
+      .hours-day {
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .hours-time {
+        color: #666;
+        font-size: 1rem;
+      }
+
+      .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      .status-open {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .status-closed {
+        background: #f8d7da;
+        color: #721c24;
+      }
+
+      /* ==================== FAQ CONTACT ==================== */
+      .faq-contact {
+        margin-top: 4rem;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: white;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        background: var(--light-bg);
+      }
+
+      .faq-question:hover {
+        background: #e8f5e8;
+        color: var(--primary-color);
+      }
+
+      .faq-answer {
+        padding: 0 2rem 2rem;
+        display: none;
+        line-height: 1.8;
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-question i {
+        transition: transform 0.3s ease;
+        color: var(--primary-color);
+      }
+
+      /* ==================== FIXED CONTACT BUTTONS ==================== */
+      .fixed-contact {
+        position: fixed;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .fixed-contact-btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.8rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+      }
+
+      .phone-btn {
+        background: var(--gradient-main);
+      }
+
+      .fixed-contact-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ==================== FOOTER ==================== */
+      .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: white;
+      }
+
+      .footer-logo {
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo img {
+        height: 60px;
+      }
+
+      .footer-description {
+        color: #ccc;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        background: var(--accent-color);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 1.1rem;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-contact {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        color: #ccc;
+        font-size: 1.1rem;
+      }
+
+      .footer-contact i {
+        color: var(--primary-color);
+        width: 20px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+        color: #ccc;
+      }
+
+      /* ==================== RESPONSIVE DESIGN ==================== */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: flex;
+        }
+
+        .page-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .contact-methods {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+
+        .hours-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .fixed-contact {
+          right: 1rem;
+        }
+
+        .fixed-contact-btn {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          padding: 4rem 0 3rem;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .nav-container {
+          padding: 0 1rem;
+        }
+
+        .contact-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .contact-form {
+          padding: 1.5rem;
+        }
+
+        .business-hours {
+          padding: 2rem;
+        }
+      }
+
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .animate-on-scroll.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Success Animation */
+      @keyframes successPop {
+        0% {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="image/logo-header.png" alt="نايس شات" />
+        </a>
+
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">الرئيسية</a>
+          <a href="about.html" class="nav-link">كيف يعمل؟</a>
+          <a href="features.html" class="nav-link">المميزات</a>
+          <a href="benefits.html" class="nav-link">الفوائد</a>
+          <a href="pricing.html" class="nav-link">الأسعار</a>
+          <a href="contact.html" class="nav-link active">اتصل بنا</a>
+        </nav>
+
+        <a href="#" class="cta-header" onclick="scrollToForm()">
+          <i class="fas fa-envelope"></i>
+          راسلنا الآن
+        </a>
+
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact">
+      <a
+        href="https://wa.me/966590086017"
+        class="fixed-contact-btn whatsapp-btn"
+        target="_blank"
+        title="واتساب"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a
+        href="tel:+966590086017"
+        class="fixed-contact-btn phone-btn"
+        title="اتصال"
+      >
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="hero-content">
+          <h1>نحن هنا لمساعدتك في كل خطوة</h1>
+          <p class="hero-subtitle">
+            فريق نايس شات مستعد للرد على جميع استفساراتك وتقديم الدعم الذي
+            تحتاجه لتحقيق أقصى استفادة من منصتنا
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Methods -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">طرق التواصل المتاحة</h2>
+            <p class="section-description">
+              اختر الطريقة الأنسب لك للتواصل معنا، نحن متاحون لمساعدتك في أي وقت
+            </p>
+          </div>
+
+          <div class="contact-methods">
+            <!-- WhatsApp -->
+            <div class="contact-card whatsapp-card animate-on-scroll">
+              <div class="contact-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h3>واتساب للدعم الفوري</h3>
+              <p>
+                الطريقة الأسرع للحصول على المساعدة! تواصل معنا عبر واتساب واحصل
+                على رد فوري من فريق الدعم المختص.
+              </p>
+              <div class="contact-info">
+                <div class="contact-detail">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>0590086017</span>
+                </div>
+                <div class="contact-detail">
+                  <i class="fas fa-clock"></i>
+                  <span>متاح 24/7</span>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/966590086017"
+                class="contact-btn"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+                ابدأ محادثة واتساب
+              </a>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card phone-card animate-on-scroll">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <h3>اتصال مباشر</h3>
+              <p>
+                للاستفسارات العاجلة أو المناقشات التفصيلية، اتصل بنا مباشرة
+                وتحدث مع أحد خبرائنا.
+              </p>
+              <div class="contact-info">
+                <div class="contact-detail">
+                  <i class="fas fa-phone"></i>
+                  <span>0590086017</span>
+                </div>
+                <div class="contact-detail">
+                  <i class="fas fa-clock"></i>
+                  <span>السبت - الخميس: 9ص - 9م</span>
+                </div>
+              </div>
+              <a href="tel:+966590086017" class="contact-btn">
+                <i class="fas fa-phone"></i>
+                اتصل الآن
+              </a>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-card email-card animate-on-scroll">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>البريد الإلكتروني</h3>
+              <p>
+                للاستفسارات التفصيلية أو إرسال المستندات، راسلنا عبر البريد
+                الإلكتروني وسنرد عليك خلال ساعات قليلة.
+              </p>
+              <div class="contact-info">
+                <div class="contact-detail">
+                  <i class="fas fa-envelope"></i>
+                  <span>info@nicechat.sa</span>
+                </div>
+                <div class="contact-detail">
+                  <i class="fas fa-clock"></i>
+                  <span>الرد خلال 2-4 ساعات</span>
+                </div>
+              </div>
+              <a href="mailto:info@nicechat.sa" class="contact-btn">
+                <i class="fas fa-envelope"></i>
+                راسلنا الآن
+              </a>
+            </div>
+          </div>
+
+          <!-- Business Hours -->
+          <div class="business-hours animate-on-scroll">
+            <h3>أوقات العمل والدعم</h3>
+            <div class="hours-grid">
+              <div class="hours-item">
+                <div class="hours-day">السبت - الأربعاء</div>
+                <div class="hours-time">9:00 صباحاً - 9:00 مساءً</div>
+              </div>
+              <div class="hours-item">
+                <div class="hours-day">الخميس</div>
+                <div class="hours-time">9:00 صباحاً - 6:00 مساءً</div>
+              </div>
+              <div class="hours-item">
+                <div class="hours-day">الجمعة</div>
+                <div class="hours-time">دعم طوارئ فقط</div>
+              </div>
+            </div>
+            <div class="status-indicator status-open" id="businessStatus">
+              <i class="fas fa-circle"></i>
+              <span>مفتوح الآن - جاهزون لمساعدتك</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section class="section contact-form-section" id="contactForm">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">أرسل لنا رسالة</h2>
+            <p class="section-description">
+              املأ النموذج أدناه وسنتواصل معك في أقرب وقت ممكن لمساعدتك في تحقيق
+              أهدافك
+            </p>
+          </div>
+
+          <div class="form-container">
+            <form
+              class="contact-form animate-on-scroll"
+              onsubmit="handleFormSubmit(event)"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName"
+                    >الاسم الأول <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    placeholder="أدخل اسمك الأول"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName"
+                    >الاسم الأخير <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    placeholder="أدخل اسمك الأخير"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email"
+                    >البريد الإلكتروني <span class="required">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone"
+                    >رقم الهاتف <span class="required">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="05XXXXXXXX"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company">اسم الشركة</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="اسم شركتك (اختياري)"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="inquiryType"
+                    >نوع الاستفسار <span class="required">*</span></label
+                  >
+                  <select id="inquiryType" name="inquiryType" required>
+                    <option value="">اختر نوع الاستفسار</option>
+                    <option value="sales">
+                      الاستفسار عن المبيعات والأسعار
+                    </option>
+                    <option value="technical">الدعم التقني</option>
+                    <option value="demo">طلب عرض تجريبي</option>
+                    <option value="partnership">الشراكات والتعاون</option>
+                    <option value="general">استفسار عام</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject"
+                  >الموضوع <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  placeholder="موضوع رسالتك باختصار"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message"
+                  >الرسالة <span class="required">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="اكتب رسالتك هنا بالتفصيل..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                إرسال الرسالة
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">أسئلة شائعة حول التواصل والدعم</h2>
+            <p class="section-description">
+              إجابات سريعة على الأسئلة الأكثر شيوعاً حول خدمات الدعم والتواصل
+            </p>
+          </div>
+
+          <div class="faq-contact">
+            <div class="faq-container">
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>ما هو وقت الاستجابة المتوقع؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نستجيب للاستفسارات عبر واتساب خلال دقائق معدودة، وعبر البريد
+                  الإلكتروني خلال 2-4 ساعات خلال أوقات العمل. للاتصال المباشر،
+                  نحن متاحون من 9 صباحاً حتى 9 مساءً من السبت إلى الخميس.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل يمكنني حجز مكالمة مع فريق المبيعات؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  بالطبع! يمكنك حجز مكالمة مع فريق المبيعات عبر ملء النموذج
+                  أعلاه واختيار "طلب عرض تجريبي" أو التواصل معنا مباشرة عبر
+                  واتساب لتحديد موعد مناسب.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل تقدمون دعم تقني خارج أوقات العمل؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نعم، نقدم دعم طوارئ للمشاكل التقنية العاجلة خارج أوقات العمل
+                  لعملاء باقة المؤسسات. كما يمكنك دائماً إرسال استفسارك عبر
+                  واتساب أو البريد الإلكتروني وسنرد عليك في أول فرصة.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>كيف يمكنني تحديد موعد للتدريب؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  التدريب مجاني لجميع عملاء الباقة الاحترافية وباقة المؤسسات.
+                  تواصل معنا عبر أي من قنوات التواصل واطلب تحديد موعد للتدريب،
+                  وسنقوم بتنسيق جلسة تدريبية مخصصة لفريقك.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>هل يمكنني زيارة مكاتبكم؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نعم، نرحب بزيارتكم لمكاتبنا في الرياض بعد تحديد موعد مسبق.
+                  تواصل معنا لتنسيق الزيارة ومناقشة احتياجاتك بشكل مفصل مع فريق
+                  الخبراء لدينا.
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                  <span>ما هي اللغات المتاحة للدعم؟</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  نقدم الدعم باللغة العربية والإنجليزية. فريقنا متخصص في فهم
+                  الاحتياجات المحلية ويتحدث العربية بطلاقة، مما يضمن تواصل واضح
+                  وفعال معك.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="image/logo-footer.png" alt="نايس شات" />
+            </div>
+            <p class="footer-description">
+              منصة محادثة ذكية تجعل تفاعلك مع العملاء أكثر فعالية وإنسانية. نحن
+              نؤمن بقوة التواصل الحقيقي في بناء الأعمال الناجحة.
+            </p>
+            <div class="social-links">
+              <a href="#" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" title="لينكد إن"><i class="fab fa-linkedin"></i></a>
+              <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="إنستجرام"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">كيف يعمل؟</a></li>
+              <li><a href="features.html">المميزات</a></li>
+              <li><a href="benefits.html">الفوائد</a></li>
+              <li><a href="pricing.html">الأسعار</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <div class="footer-contact">
+              <i class="fas fa-phone"></i>
+              <span>0590086017</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fab fa-whatsapp"></i>
+              <span>واتساب: 0590086017</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-envelope"></i>
+              <span>info@nicechat.sa</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>المملكة العربية السعودية</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-clock"></i>
+              <span>السبت - الخميس: 9 ص - 9 م</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Nice Chat. جميع الحقوق محفوظة | تم التطوير بواسطة NOVAY
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Business Hours Status
+      function updateBusinessStatus() {
+        const now = new Date();
+        const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+        const hour = now.getHours();
+        const statusElement = document.getElementById("businessStatus");
+
+        // Convert to Saudi time logic (assuming UTC+3)
+        let isOpen = false;
+
+        if (day >= 6 || day <= 3) {
+          // Saturday to Wednesday (6,0,1,2,3)
+          isOpen = hour >= 9 && hour < 21; // 9 AM to 9 PM
+        } else if (day === 4) {
+          // Thursday
+          isOpen = hour >= 9 && hour < 18; // 9 AM to 6 PM
+        }
+        // Friday (day 5) - emergency support only
+
+        if (isOpen) {
+          statusElement.innerHTML =
+            '<i class="fas fa-circle"></i><span>مفتوح الآن - جاهزون لمساعدتك</span>';
+          statusElement.className = "status-indicator status-open";
+        } else {
+          statusElement.innerHTML =
+            '<i class="fas fa-circle"></i><span>مغلق حالياً - سنرد على رسائلك قريباً</span>';
+          statusElement.className = "status-indicator status-closed";
+        }
+      }
+
+      // FAQ Toggle
+      function toggleFaq(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all FAQ items
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          faqItem.classList.add("active");
+        }
+      }
+
+      // Scroll to Form
+      function scrollToForm() {
+        document.getElementById("contactForm").scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      // Form Submission
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        // Get form data
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+
+        // Show loading state
+        const submitBtn = event.target.querySelector(".submit-btn");
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+        submitBtn.disabled = true;
+
+        // Simulate form submission
+        setTimeout(() => {
+          // Reset form
+          event.target.reset();
+
+          // Show success message
+          showSuccessMessage(data.inquiryType);
+
+          // Reset button
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      }
+
+      // Success Message
+      function showSuccessMessage(inquiryType) {
+        let responseTime = "";
+        let additionalInfo = "";
+
+        switch (inquiryType) {
+          case "sales":
+            responseTime = "خلال ساعة واحدة";
+            additionalInfo = "سيتواصل معك مستشار المبيعات";
+            break;
+          case "technical":
+            responseTime = "خلال 30 دقيقة";
+            additionalInfo = "فريق الدعم التقني جاهز لمساعدتك";
+            break;
+          case "demo":
+            responseTime = "خلال ساعة واحدة";
+            additionalInfo = "سنرسل لك رابط العرض التجريبي";
+            break;
+          default:
+            responseTime = "خلال 2-4 ساعات";
+            additionalInfo = "شكراً لتواصلك معنا";
+        }
+
+        const successDiv = document.createElement("div");
+        successDiv.innerHTML = `
+          <div style="
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: linear-gradient(135deg, #600E6E, #114922);
+              color: white;
+              padding: 2.5rem 3rem;
+              border-radius: 25px;
+              box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+              text-align: center;
+              z-index: 3000;
+              animation: successPop 0.5s ease;
+              max-width: 500px;
+          ">
+              <i class="fas fa-check-circle" style="font-size: 4rem; color: #4CAF50; margin-bottom: 1.5rem;"></i>
+              <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">تم إرسال رسالتك بنجاح!</h3>
+              <p style="margin-bottom: 1rem;">${additionalInfo}</p>
+              <p style="margin-bottom: 1.5rem;">سنتواصل معك ${responseTime}</p>
+              <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 15px; margin-top: 1rem;">
+                  <p style="font-size: 0.9rem; opacity: 0.9;">💬 للاستفسارات العاجلة، تواصل معنا عبر واتساب</p>
+              </div>
+          </div>
+        `;
+
+        document.body.appendChild(successDiv);
+
+        setTimeout(() => {
+          successDiv.remove();
+        }, 5000);
+      }
+
+      // Header Scroll Effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 8px 32px rgba(0,0,0,0.15)";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        }
+      });
+
+      // Animate on Scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      // Apply animation to elements
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate-on-scroll");
+        animateElements.forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Update business status on load
+        updateBusinessStatus();
+
+        // Update business status every minute
+        setInterval(updateBusinessStatus, 60000);
+      });
+
+      // Mobile Menu Toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          const navMenu = document.querySelector(".nav-menu");
+          const isOpen = navMenu.style.display === "flex";
+
+          if (isOpen) {
+            navMenu.style.display = "none";
+          } else {
+            navMenu.style.display = "flex";
+            navMenu.style.position = "absolute";
+            navMenu.style.top = "100%";
+            navMenu.style.left = "0";
+            navMenu.style.right = "0";
+            navMenu.style.background = "white";
+            navMenu.style.flexDirection = "column";
+            navMenu.style.padding = "2rem";
+            navMenu.style.boxShadow = "0 8px 32px rgba(0,0,0,0.15)";
+            navMenu.style.borderRadius = "0 0 15px 15px";
+          }
+        });
+
+      // Enhanced Button Hover Effects
+      document.querySelectorAll(".contact-btn, .submit-btn").forEach((btn) => {
+        btn.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-3px) scale(1.02)";
+        });
+
+        btn.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Add loading animation to contact buttons
+      document.querySelectorAll(".fixed-contact-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.style.animation = "pulse 0.6s ease";
+          setTimeout(() => {
+            this.style.animation = "";
+          }, 600);
+        });
+      });
+
+      // Form validation enhancement
+      document.querySelectorAll("input, textarea, select").forEach((field) => {
+        field.addEventListener("blur", function () {
+          if (this.hasAttribute("required") && !this.value) {
+            this.style.borderColor = "#dc3545";
+          } else {
+            this.style.borderColor = "#e0e0e0";
+          }
+        });
+
+        field.addEventListener("focus", function () {
+          this.style.borderColor = "var(--primary-color)";
+        });
+      });
+
+      // Auto-resize textarea
+      document.getElementById("message").addEventListener("input", function () {
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
+      });
+    </script>
+  </body>
+</html>
